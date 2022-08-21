@@ -2,7 +2,6 @@ package com.mutakinxdicoding.mobilelegendsheroes.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.mutakinxdicoding.mobilelegendsheroes.core.data.Resource
 import com.mutakinxdicoding.mobilelegendsheroes.core.domain.model.DetailHero

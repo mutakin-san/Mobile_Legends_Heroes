@@ -10,6 +10,7 @@
         android:id="@+id/iv_skill_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="@string/skill_icon_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />

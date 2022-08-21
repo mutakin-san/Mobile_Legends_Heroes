@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.mutakinxdicoding.mobilelegendsheroes.core.domain.model.Hero
 import com.mutakinxdicoding.mobilelegendsheroes.core.ui.HeroAdapter
 import com.mutakinxdicoding.mobilelegendsheroes.detail.DetailHeroActivity
 import com.mutakinxdicoding.mobilelegendsheroes.favorite.databinding.FragmentFavoriteBinding
@@ -43,7 +44,7 @@ class FavoriteFragment : Fragment() {
                 startActivity(intent)
             }
 
-            favoriteViewModel.favoriteHero.observe(viewLifecycleOwner) { dataHero ->
+            favoriteViewModel.favoriteHero.observe(viewLifecycleOwner) { dataHero : List<Hero> ->
                 heroAdapter.submitList(dataHero)
                 binding.viewEmpty.root.visibility =
                     if (dataHero.isNotEmpty()) View.GONE else View.VISIBLE

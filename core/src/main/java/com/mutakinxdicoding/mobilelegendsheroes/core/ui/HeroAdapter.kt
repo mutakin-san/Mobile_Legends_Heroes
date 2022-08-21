@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.mutakinxdicoding.mobilelegendsheroes.core.R
 import com.mutakinxdicoding.mobilelegendsheroes.core.databinding.ItemListHeroBinding
 import com.mutakinxdicoding.mobilelegendsheroes.core.domain.model.Hero
+import com.squareup.picasso.Picasso
 
 class HeroAdapter(private val onItemClick: ((Hero) -> Unit)) : ListAdapter<Hero, HeroAdapter.ListViewHolder>(DiffCallback) {
 
@@ -31,7 +31,7 @@ class HeroAdapter(private val onItemClick: ((Hero) -> Unit)) : ListAdapter<Hero,
         private val binding = ItemListHeroBinding.bind(itemView)
         fun bind(data: Hero) {
             with(binding) {
-                Glide.with(itemView.context)
+                Picasso.get()
                     .load("https:${data.heroAvatar}")
                     .into(ivItemImage)
                 tvItemTitle.text = data.heroName

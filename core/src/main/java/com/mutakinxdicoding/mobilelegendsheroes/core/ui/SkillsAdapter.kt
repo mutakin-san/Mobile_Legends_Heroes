@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.mutakinxdicoding.mobilelegendsheroes.core.R
 import com.mutakinxdicoding.mobilelegendsheroes.core.databinding.ItemSkillLayoutBinding
 import com.mutakinxdicoding.mobilelegendsheroes.core.domain.model.ItemSkill
+import com.squareup.picasso.Picasso
 
 class SkillsAdapter : ListAdapter<ItemSkill, SkillsAdapter.ListViewHolder>(DiffCallback) {
 
@@ -28,11 +28,11 @@ class SkillsAdapter : ListAdapter<ItemSkill, SkillsAdapter.ListViewHolder>(DiffC
         private val binding = ItemSkillLayoutBinding.bind(itemView)
         fun bind(data: ItemSkill) {
             with(binding) {
-                Glide.with(itemView.context)
-                    .load("https:${data.icon}")
-                    .into(ivSkillIcon)
                 tvSkillName.text = data.name
                 tvSkillTips.text = data.tips
+                Picasso.get()
+                    .load("https:${data.icon}")
+                    .into(ivSkillIcon)
             }
         }
     }
