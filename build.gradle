@@ -3,9 +3,15 @@ buildscript {
     ext.room_version = "2.4.3"
     ext.retrofit_version = "2.9.0"
     ext.logging_version = "5.0.0-alpha.9"
-    ext.coroutine_version = "1.6.21"
+    ext.coroutine_version = "1.6.4"
     ext.lifecycle_version = "2.5.1"
     ext.koin_version = "3.2.0"
+    ext.hilt_version = "2.38.1"
+
+
+    dependencies {
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+    }
 }
 plugins {
     id 'com.android.application' version '7.1.2' apply false
