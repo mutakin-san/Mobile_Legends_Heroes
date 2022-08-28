@@ -1,7 +1,7 @@
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }
 
-
+-dontwarn com.squareup.okhttp.**
 
 ##---------------Begin: proguard configuration for Gson ----------
 # Gson uses generic type information stored in a class file when working with fields. Proguard
@@ -55,7 +55,7 @@
 
 # Top-level functions that can only be used by Kotlin.
 -dontwarn retrofit2.KotlinExtensions
--dontwarn retrofit2.KotlinExtensions$*
+-dontwarn retrofit2.KotlinExtensions.*
 
 # With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
 # and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
@@ -65,18 +65,6 @@
 -dontwarn kotlinx.**
 
 
-##---------------Begin: proguard configuration for Glide ----------
--keep public class * implements com.bumptech.glide.module.GlideModule
--keep class * extends com.bumptech.glide.module.AppGlideModule {
-<init>(...);
-}
--keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
-**[] $VALUES;
-public *;
-}
--keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
-*** rewind();
-}
 
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
